@@ -2,7 +2,8 @@ import Chart from "./Components/Chart";
 import Cards from "./Components/Cards";
 import Country from "./Components/Country";
 import React from "react";
-import {fetchData} from './Components/Api'
+import { fetchData } from './Components/Api'
+
 class App extends React.Component {
   
   state = {
