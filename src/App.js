@@ -3,7 +3,7 @@ import Cards from "./Components/Cards";
 import Country from "./Components/Country";
 import React from "react";
 import { fetchData } from './Components/Api'
-
+import './index.css'
 class App extends React.Component {
   
   state = {
@@ -22,9 +22,11 @@ class App extends React.Component {
     const { data } = this.state;
     return(
     <div className="container" >
-    <Chart />
+    
     <Cards data={data} />
-    <Country/>
+        <Country data={data}/>
+        <Chart data={data} />
+       
     </div>
   );
   }
