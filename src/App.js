@@ -7,28 +7,42 @@ import './index.css'
 class App extends React.Component {
   
   state = {
-    data:{},
+    data: {},
+    country: ''
   }
 
   async componentDidMount () {
-    const fetchedData = await fetchData();
+    const data = await fetchData();
 
-    this.setState({data: fetchedData})
-
+    this.setState({data})
+}
     
-  }
+  
+handleCountryChange = async (country) => {
+  const data = await fetchData(country);
+  console.log(data)
+  this.setState({ data, country: country });
+}
 
-  render() {
-    const { data } = this.state;
-    return(
-    <div className="container" >
+ 
+  
+ render() {
+    const { data, country } = this.state;
+ 
+   return (
+ <>
+     
+  
+     < div className = "container" >
     
-    <Cards data={data} />
-        <Country data={data}/>
-        <Chart data={data} />
+    <Cards data={data}  />
+       <Country handleCountryChange={this.handleCountryChange} />
+        <Chart data={data} country={country} />
        
-    </div>
-  );
+       </div>
+     </>
+   );
+   
   }
   
 }
